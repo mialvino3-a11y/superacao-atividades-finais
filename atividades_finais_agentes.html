@@ -146,6 +146,13 @@ tbody td{padding:6px 8px;vertical-align:middle}
     <div style="font-size:.7rem;color:#94A3B8;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px">Agentes com:</div>
     <div style="font-size:.7rem;color:#94A3B8;line-height:1.4">Os números acima contam <strong style="color:#64748B">registros</strong>. Os abaixo contam <strong style="color:#64748B">agentes únicos</strong>.<br>Ex: 712 concluídas = 59 agentes · ~12 por agente.</div>
   </div>
+  <div style="padding:8px 16px;background:#FFF7ED;border:2px solid #F97316;border-radius:8px;font-size:.82rem;box-shadow:0 2px 8px rgba(249,115,22,.2)">
+    <div style="display:flex;align-items:center;gap:8px">
+      <span style="font-weight:800;font-size:1.25rem;color:#C2410C" id="agZero">—</span>
+      <span style="color:#9A3412;font-weight:600">agentes sem nenhuma atividade iniciada</span>
+    </div>
+    <div style="font-size:.72rem;color:#92400E;margin-top:3px" id="agZeroB">—</div>
+  </div>
   <div style="padding:8px 16px;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;font-size:.82rem">
     <div style="display:flex;align-items:center;gap:8px">
       <span style="font-weight:700;font-size:1.1rem;color:#16A34A" id="agConcl">—</span>
@@ -569,6 +576,9 @@ function atualizarKPIs(){
   document.getElementById('agNiniB').textContent=rNini.sub;
   document.getElementById('agCrit').textContent=pf(rCrit.total);
   document.getElementById('agCritB').textContent=rCrit.sub;
+  const rZero = bBreak(r=>r.concluida===0 && r.em_andamento===0 && r.atrasada===0 && r.nao_realizada===0 && r.desistiu===0);
+  document.getElementById('agZero').textContent=pf(rZero.total);
+  document.getElementById('agZeroB').textContent=rZero.sub;
 }
 
 // ── Charts dinâmicos (pizza + ranking) — reagem a todos os filtros
