@@ -141,6 +141,40 @@ tbody td{padding:6px 8px;vertical-align:middle}
   <div class="kpi" style="border-top-color:#94A3B8"><div class="lbl">Não iniciadas</div><div class="val" style="color:#64748B" id="kNini">—</div><div class="sub2" id="kPctN">—</div></div>
   <div class="kpi" style="border-top-color:#DC2626"><div class="lbl">Situações críticas</div><div class="val" style="color:#DC2626" id="kCrit">—</div><div class="sub2">Atrasada · N.realizada · Desistência</div></div>
 </div>
+<div class="kpis" style="margin-top:0;padding-top:0;border-top:none;gap:8px">
+  <div style="padding:6px 14px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;font-size:.78rem;color:#475569;min-width:140px">
+    <div style="font-size:.7rem;color:#94A3B8;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px">Agentes com:</div>
+    <div style="font-size:.7rem;color:#94A3B8;line-height:1.4">Os números acima contam <strong style="color:#64748B">registros</strong>. Os abaixo contam <strong style="color:#64748B">agentes únicos</strong>.<br>Ex: 712 concluídas = 59 agentes · ~12 por agente.</div>
+  </div>
+  <div style="padding:8px 16px;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;font-size:.82rem">
+    <div style="display:flex;align-items:center;gap:8px">
+      <span style="font-weight:700;font-size:1.1rem;color:#16A34A" id="agConcl">—</span>
+      <span style="color:#15803D">agentes com atividades concluídas</span>
+    </div>
+    <div style="font-size:.72rem;color:#6B7280;margin-top:3px" id="agConclB">—</div>
+  </div>
+  <div style="padding:8px 16px;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;font-size:.82rem">
+    <div style="display:flex;align-items:center;gap:8px">
+      <span style="font-weight:700;font-size:1.1rem;color:#2563EB" id="agAndam">—</span>
+      <span style="color:#1D4ED8">agentes com atividades em andamento</span>
+    </div>
+    <div style="font-size:.72rem;color:#6B7280;margin-top:3px" id="agAndamB">—</div>
+  </div>
+  <div style="padding:8px 16px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;font-size:.82rem">
+    <div style="display:flex;align-items:center;gap:8px">
+      <span style="font-weight:700;font-size:1.1rem;color:#64748B" id="agNini">—</span>
+      <span style="color:#475569">agentes com atividades não iniciadas</span>
+    </div>
+    <div style="font-size:.72rem;color:#6B7280;margin-top:3px" id="agNiniB">—</div>
+  </div>
+  <div style="padding:8px 16px;background:#FEF2F2;border:1px solid #FECACA;border-radius:8px;font-size:.82rem">
+    <div style="display:flex;align-items:center;gap:8px">
+      <span style="font-weight:700;font-size:1.1rem;color:#DC2626" id="agCrit">—</span>
+      <span style="color:#B91C1C">agentes em situação crítica</span>
+    </div>
+    <div style="font-size:.72rem;color:#6B7280;margin-top:3px" id="agCritB">—</div>
+  </div>
+</div>
 
 <!-- TABELA PRINCIPAL -->
 <div class="sec">
@@ -512,6 +546,29 @@ function atualizarKPIs(){
   document.getElementById('kNini').textContent=pf(nini);
   document.getElementById('kPctN').textContent=pctN+'%';
   document.getElementById('kCrit').textContent=pf(crit);
+
+  // ── Agentes por categoria + breakdown por bloco
+  const blocos = ['Bloco 1','Bloco 2','Bloco 3'];
+  function bBreak(fn){
+    const total = curRows.filter(fn).length;
+    const parts = blocos.map(b=>{
+      const n = curRows.filter(r=>r.bloco===b && fn(r)).length;
+      return n>0 ? `${b}: ${pf(n)}` : null;
+    }).filter(Boolean);
+    return {total, sub: parts.length ? parts.join(' · ') : '—'};
+  }
+  const rConcl = bBreak(r=>r.concluida>0);
+  const rAndam = bBreak(r=>r.em_andamento>0);
+  const rNini  = bBreak(r=>r.nao_iniciada>0);
+  const rCrit  = bBreak(r=>(r.atrasada+r.nao_realizada+r.desistiu)>0);
+  document.getElementById('agConcl').textContent=pf(rConcl.total);
+  document.getElementById('agConclB').textContent=rConcl.sub;
+  document.getElementById('agAndam').textContent=pf(rAndam.total);
+  document.getElementById('agAndamB').textContent=rAndam.sub;
+  document.getElementById('agNini').textContent=pf(rNini.total);
+  document.getElementById('agNiniB').textContent=rNini.sub;
+  document.getElementById('agCrit').textContent=pf(rCrit.total);
+  document.getElementById('agCritB').textContent=rCrit.sub;
 }
 
 // ── Charts dinâmicos (pizza + ranking) — reagem a todos os filtros
