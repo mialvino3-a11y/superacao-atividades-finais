@@ -28,6 +28,29 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
 /* ── Main content */
 .main{flex:1;padding:22px 24px;overflow-x:hidden}
 /* ── KPIs */
+/* Abertura conceitual */
+.intro{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:18px 20px;margin-bottom:18px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.intro-grid{display:grid;grid-template-columns:220px 1fr;gap:18px;align-items:stretch}
+.intro-stat{border-left:4px solid var(--ci);background:#F8FAFC;border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;justify-content:center}
+.intro-stat .n{font-size:3rem;font-weight:850;line-height:1;color:var(--az)}
+.intro-stat .t{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--mu);margin-top:6px}
+.intro-copy h2{font-size:1rem;color:var(--az);margin-bottom:7px}
+.intro-copy p{font-size:.84rem;color:#334155;line-height:1.55;margin-bottom:8px;max-width:980px}
+.intro-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.intro-pill{background:#EFF6FF;color:#1E3A8A;border:1px solid #BFDBFE;border-radius:999px;padding:4px 10px;font-size:.74rem;font-weight:700}
+.af-list{margin-top:12px;border-top:1px solid var(--bd);padding-top:10px}
+.af-list summary{cursor:pointer;font-size:.8rem;font-weight:800;color:var(--az);list-style:none;display:inline-flex;gap:6px;align-items:center}
+.af-list summary::before{content:'A';color:var(--ci);font-size:1rem;line-height:1;transition:transform .15s}
+.af-list[open] summary::before{transform:rotate(90deg)}
+.af-table-wrap{margin-top:10px;max-height:280px;overflow:auto;border:1px solid var(--bd);border-radius:8px}
+.af-ref-table{font-size:.74rem}
+.af-ref-table th{cursor:default}
+.af-ref-table td:first-child{width:46px;text-align:center;color:var(--mu);font-weight:800;background:#F8FAFC}
+.af-ref-table td:nth-child(2){font-weight:700;color:#1E3A5F;min-width:220px}
+.af-ref-table td{padding:7px 8px}
+.agent-summary{display:grid;grid-template-columns:1.2fr repeat(5,1fr);gap:8px;margin-top:-12px;margin-bottom:20px}
+.agent-summary>div{padding:8px 12px!important;min-width:0}
+@media(max-width:1000px){.intro-grid{grid-template-columns:1fr}.agent-summary{grid-template-columns:1fr 1fr}.intro-stat .n{font-size:2.4rem}}
 .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:24px}
 .kpi{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:14px 16px;border-top:4px solid var(--ci)}
 .kpi .lbl{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--mu);margin-bottom:4px}
@@ -133,6 +156,40 @@ tbody td{padding:6px 8px;vertical-align:middle}
 <!-- ═══ CONTEÚDO PRINCIPAL ═══ -->
 <main class="main">
 
+<!-- ABERTURA CONCEITUAL -->
+<div class="intro">
+  <div class="intro-grid">
+    <div class="intro-stat">
+      <div class="n">23</div>
+      <div class="t">atividades de refer&ecirc;ncia monitoradas</div>
+    </div>
+    <div class="intro-copy">
+      <h2>O que este painel acompanha</h2>
+      <p>
+        Este painel olha apenas para as atividades finais de refer&ecirc;ncia: um conjunto fechado de <strong>23 pares de Pol&iacute;tica P&uacute;blica &times; Atividade</strong> definidos para o SuperA&ccedil;&atilde;o SP. Elas funcionam como marcos de encaminhamento no SIGMA.
+      </p>
+      <p>
+        A l&oacute;gica &eacute; simples: para cada pol&iacute;tica p&uacute;blica, foi selecionada uma a&ccedil;&atilde;o que indica que a fam&iacute;lia recebeu o encaminhamento essencial daquela pol&iacute;tica. Em termos operacionais, &eacute; o registro que ajuda a demonstrar que a fam&iacute;lia pode avan&ccedil;ar na trilha de acompanhamento, saindo de uma etapa/m&oacute;dulo e seguindo para a pr&oacute;xima.
+      </p>
+      <div class="intro-pills">
+        <span class="intro-pill">22 pol&iacute;ticas p&uacute;blicas</span>
+        <span class="intro-pill">23 combina&ccedil;&otilde;es pol&iacute;tica &times; atividade</span>
+        <span class="intro-pill">unidade de an&aacute;lise: agente</span>
+        <span class="intro-pill">fonte: SIGMA &middot; Pol&iacute;ticas Estrat&eacute;gicas</span>
+      </div>
+    </div>
+  </div>
+  <details class="af-list">
+    <summary>Ver quais s&atilde;o as 23 atividades de refer&ecirc;ncia</summary>
+    <div class="af-table-wrap">
+      <table class="af-ref-table">
+        <thead><tr><th>#</th><th>Pol&iacute;tica p&uacute;blica</th><th>Atividade de refer&ecirc;ncia</th></tr></thead>
+        <tbody><tr><td>1</td><td>Auxílio Aluguel para Mulheres Vítimas de Violência</td><td>Comparecer ao CRAS com as documentações e comprovantes</td></tr><tr><td>2</td><td>Banco do Povo Paulista</td><td>Agendar atendimento em uma unidade do Banco do Povo Paulista (BPP)</td></tr><tr><td>3</td><td>Bolsa Estágio do Ensino Médio (BEEM)</td><td>Realizar inscrição no site</td></tr><tr><td>4</td><td>Caminhos da Capacitação (Carreta)</td><td>Se inscrever no curso de interesse</td></tr><tr><td>5</td><td>Casa Terapêutica</td><td>Comparecer ao CRAS</td></tr><tr><td>6</td><td>Centro Estadual de Educação de Jovens e Adultos (CEEJA)</td><td>Se matricular na unidade CEEJA</td></tr><tr><td>7</td><td>CultSP PRO</td><td>Se inscrever no curso de interesse</td></tr><tr><td>8</td><td>Educação de Jovens e Adultos (EJA)</td><td>Realizar a matricula (EJA)</td></tr><tr><td>9</td><td>Educação em Tempo Integral</td><td>Matricular criança ou adolescente em Escola em Tempo Integral</td></tr><tr><td>10</td><td>Educação Infantil (Creche)</td><td>Matricular criança em creche ou escola</td></tr><tr><td>11</td><td>Escolas de Qualificação Profissional</td><td>Se inscrever no curso de interesse</td></tr><tr><td>12</td><td>Unidade Básica de Saúde</td><td>Comparecer na Unidade Básica de Saúde (UBS)</td></tr><tr><td>13</td><td>Posto de Atendimento ao Trabalhador (PAT)</td><td>Comparecer em uma unidade do Posto de Atendimento ao Trabalhador (PAT) com a documentação necessária</td></tr><tr><td>14</td><td>Programa Casa Paulista: Carta de Crédito Imobiliário Individual (CCI)</td><td>Realizar uma simulação de financiamento com um funcionário ou correspondente da Caixa Econômica Federal no local do imóvel</td></tr><tr><td>15</td><td>Programa Jovem Aprendiz Paulista</td><td>Realizar inscrição no site</td></tr><tr><td>16</td><td>Programa Pró-Conexão</td><td>Comparecer ao CRAS</td></tr><tr><td>17</td><td>Programa Tarifa Vulnerável e Tarifa Social Paulista</td><td>Atualizar CadÚnico</td></tr><tr><td>18</td><td>Programa Viva Leite</td><td>Contactar prefeitura para verificar se há vagas disponíveis</td></tr><tr><td>19</td><td>Programa Viva Leite</td><td>Contactar Entidade Social parceira para verificar se há vagas disponíveis</td></tr><tr><td>20</td><td>Rede Socioassistêncial (CRAS)</td><td>Comparecer ao CRAS</td></tr><tr><td>21</td><td>Restaurante Bom Prato</td><td>Frequentar Restaurante Bom Prato</td></tr><tr><td>22</td><td>Trampolim (Intermediação de mão de obra)</td><td>Realizar inscrição no site</td></tr><tr><td>23</td><td>Trampolim (Qualificação)</td><td>Se inscrever no curso de interesse</td></tr></tbody>
+      </table>
+    </div>
+  </details>
+</div>
+
 <!-- KPIs -->
 <div class="kpis" id="kpisWrap">
   <div class="kpi"><div class="lbl">Atividades Finais</div><div class="val" id="kTot">—</div><div class="sub2">registros filtrados</div></div>
@@ -141,7 +198,7 @@ tbody td{padding:6px 8px;vertical-align:middle}
   <div class="kpi" style="border-top-color:#94A3B8"><div class="lbl">Não iniciadas</div><div class="val" style="color:#64748B" id="kNini">—</div><div class="sub2" id="kPctN">—</div></div>
   <div class="kpi" style="border-top-color:#DC2626"><div class="lbl">Situações críticas</div><div class="val" style="color:#DC2626" id="kCrit">—</div><div class="sub2">Atrasada · N.realizada · Desistência</div></div>
 </div>
-<div class="kpis" style="margin-top:0;padding-top:0;border-top:none;gap:8px">
+<div class="agent-summary">
   <div style="padding:6px 14px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;font-size:.78rem;color:#475569;min-width:140px">
     <div style="font-size:.7rem;color:#94A3B8;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px">Agentes com:</div>
     <div style="font-size:.7rem;color:#94A3B8;line-height:1.4">Os números acima contam <strong style="color:#64748B">registros</strong>. Os abaixo contam <strong style="color:#64748B">agentes únicos</strong>.<br>Ex: 712 concluídas = 59 agentes · ~12 por agente.</div>
@@ -189,21 +246,6 @@ tbody td{padding:6px 8px;vertical-align:middle}
     <div>
       <div class="sec-title">Tabela Completa por Agente</div>
       <div class="sec-sub">Bloco · Município · Agente · status das Atividades Finais · clique nas colunas para ordenar</div>
-    </div>
-  </div>
-  <div style="background:#F0F9FF;border:1px solid #BAE6FD;border-radius:8px;padding:14px 18px;margin-bottom:16px;font-size:.88rem;line-height:1.6;color:#0C4A6E">
-    <div style="font-weight:700;font-size:.93rem;margin-bottom:6px;display:flex;align-items:center;gap:6px">
-      <span style="font-size:1rem">ℹ️</span> O que são Atividades Finais?
-    </div>
-    <p style="margin:0 0 6px 0">
-      Atividades Finais são as <strong>ações conclusivas obrigatórias</strong> que cada agente deve registrar no SIGMA para indicar o encerramento do acompanhamento de uma família em cada política pública. Elas sinalizam que o ciclo de atendimento foi completado — seja com êxito (Concluída) ou com alguma intercorrência (Atrasada, Não realizada, Desistência).
-    </p>
-    <p style="margin:0 0 4px 0">
-      São monitoradas <strong>23 pares de Política Pública × Atividade</strong>, definidos pela coordenação do programa SuperAção SP. Para cada agente, contabiliza-se quantos registros existem nessas combinações e qual o status de cada um.
-    </p>
-    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px">
-      <span style="background:#DBEAFE;color:#1E40AF;padding:2px 8px;border-radius:12px;font-size:.8rem">% Conclusão = Concluídas ÷ Total</span>
-      <span style="background:#FEF3C7;color:#92400E;padding:2px 8px;border-radius:12px;font-size:.8rem">% Status Crítico = (Atrasadas + Não realizadas + Desistências) ÷ Total</span>
     </div>
   </div>
   <div class="note">
