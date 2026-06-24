@@ -135,29 +135,33 @@ tr:hover td{background:#FAFBFF}
 
 <!-- Sumário executivo -->
 <div class="sumario">
-  <div class="sum-item" title="Total de atividades unicas apos deduplicacao. O arquivo bruto do SIGMA tinha ~56 mil linhas — como o mesmo encaminhamento pode aparecer varias vezes quando o agente atualiza o status, mantivemos apenas o registro mais recente por familia + pessoa + politica + objetivo + acao + atividade. Resultado: 51.464 atividades unicas.">
+  <div class="sum-item" title="Total de atividades unicas apos deduplicacao. O arquivo bruto do SIGMA tinha ~56 mil linhas — como o mesmo encaminhamento pode aparecer varias vezes quando o agente atualiza o status, mantivemos apenas o registro mais recente por familia + pessoa + politica + objetivo + acao + atividade. Resultado: 51.464 atividades unicas. Verificacao: 25.350 + 2.688 + 3.177 + 2.052 + 18.197 = 51.464.">
     <div class="sum-val">51.464</div>
-    <div class="sum-lbl">Atividades unicas no plano <span style="font-size:.65rem;opacity:.7;vertical-align:middle">ⓘ</span></div>
+    <div class="sum-lbl">Atividades unicas no plano <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg></div>
   </div>
-  <div class="sum-item" title="Atividades com status literal 'Nao iniciada' preenchido pelo proprio sistema SIGMA. Nao inclui os 18.197 com campo em branco (que tambem podem indicar nao inicio, mas podem ser erro do sistema). Formula: qtd com status = 'Nao iniciada' / total de 51.464 x 100 = 49.3%.">
+  <div class="sum-item" title="Atividades com status literal 'Nao iniciada' preenchido pelo proprio sistema SIGMA. Nao inclui os 18.197 com campo em branco (que tambem podem indicar nao inicio, mas podem ser erro do sistema). Formula: 25.350 / 51.464 = 49.3%.">
     <div class="sum-val alert">25.350</div>
-    <div class="sum-lbl">Nao iniciadas (49.3%) <span style="font-size:.65rem;opacity:.7;vertical-align:middle">ⓘ</span></div>
+    <div class="sum-lbl">Nao iniciadas (49.3%) <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg></div>
   </div>
-  <div class="sum-item" title="Atividades com status 'Em andamento' — iniciadas e dentro do prazo. Formula: qtd com status = 'Em andamento' / total de 51.464 x 100 = 5.2%. Atencao: este numero pode estar subestimado pois os 18.197 sem status podem conter atividades em andamento nao registradas.">
+  <div class="sum-item" title="Atividades com status 'Em andamento' — iniciadas e dentro do prazo. Formula: 2.688 / 51.464 = 5.2%. Pode estar subestimado pois os 18.197 sem status podem conter atividades em andamento nao registradas.">
     <div class="sum-val" style="color:#93C5FD">2.688</div>
-    <div class="sum-lbl">Em andamento (5.2%) <span style="font-size:.65rem;opacity:.7;vertical-align:middle">ⓘ</span></div>
+    <div class="sum-lbl">Em andamento (5.2%) <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg></div>
   </div>
-  <div class="sum-item" title="Atividades com status 'Concluida' — a familia realizou o encaminhamento com sucesso. Formula: qtd com status = 'Concluida' / total de 51.464 x 100 = 6.2%. Este e o indicador mais confiavel pois depende de registro ativo do agente.">
+  <div class="sum-item" title="Atividades com status 'Concluida' — a familia realizou o encaminhamento com sucesso. Formula: 3.177 / 51.464 = 6.2%. E o indicador mais confiavel pois depende de registro ativo do agente.">
     <div class="sum-val ok">3.177</div>
-    <div class="sum-lbl">Concluidas (6.2%) <span style="font-size:.65rem;opacity:.7;vertical-align:middle">ⓘ</span></div>
+    <div class="sum-lbl">Concluidas (6.2%) <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg></div>
   </div>
-  <div class="sum-item" title="Atividades onde o campo 'Status da Atividade' esta em branco no SIGMA. Pode significar: (1) o sistema nao preencheu automaticamente o status 'Nao iniciada' — erro do proprio SIGMA; ou (2) o agente nunca abriu o registro apos criar. A medida que os agentes atualizarem, este numero tende a diminuir e migrar para outros status. Formula: qtd com status em branco / total de 51.464 x 100 = 35.4%.">
+  <div class="sum-item" title="Atividades com status 'Atrasada', 'Nao realizada' ou 'Desistiu/Perdeu o interesse'. Sao atividades com intercorrencias registradas — o agente tentou mas houve algum impedimento ou desistencia. Formula: 2.052 / 51.464 = 4.0%. Esses status nao aparecem em cards separados mas estao incluidos no total de 51.464.">
+    <div class="sum-val" style="color:#FB923C">2.052</div>
+    <div class="sum-lbl">Com intercorrencia (4.0%) <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg></div>
+  </div>
+  <div class="sum-item" title="Atividades onde o campo 'Status da Atividade' esta em branco no SIGMA. Pode significar: (1) erro do proprio sistema que nao preencheu automaticamente 'Nao iniciada'; ou (2) o agente nunca abriu o registro. A medida que os agentes atualizarem, este numero tende a cair. Formula: 18.197 / 51.464 = 35.4%.">
     <div class="sum-val" style="color:#FBBF24">18.197</div>
-    <div class="sum-lbl">Sem status preenchido (35.4%) <span style="font-size:.65rem;opacity:.7;vertical-align:middle">ⓘ</span></div>
+    <div class="sum-lbl">Sem status preenchido (35.4%) <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg></div>
   </div>
-  <div class="sum-item" title="53 atividades de 2 familias onde o campo Municipio esta vazio no SIGMA. Nao sao testes — tem cod_familiar preenchido. Agentes: Melissa Coutinho da Mota (52 atividades, municipio nao identificado) e Caroline Ferreira Cavalheri Afonso (1 atividade, provavel Sao Roque). Por nao ter municipio, essas atividades entram no total geral mas nao aparecem na tabela por bloco.">
+  <div class="sum-item" title="NOTA DE QUALIDADE — nao e um status adicional. Essas 53 atividades JA estao contadas dentro dos 51.464 e distribuidas nos status acima. O que este indicador alerta e que o campo Municipio esta em branco no SIGMA para 2 familias: Melissa Coutinho da Mota (52 ativ.) e Caroline Ferreira Cavalheri Afonso (1 ativ., provavel Sao Roque). Sem municipio, nao e possivel alocá-las na tabela por bloco.">
     <div class="sum-val" style="color:#F87171">53</div>
-    <div class="sum-lbl">Atividades sem municipio no SIGMA <span style="font-size:.65rem;opacity:.7;vertical-align:middle">ⓘ</span></div>
+    <div class="sum-lbl">Sem municipio no SIGMA ⚠ <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg></div>
   </div>
 </div>
 
