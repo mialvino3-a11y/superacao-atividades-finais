@@ -29,14 +29,14 @@ st.markdown("""
 
 secao = st.radio(
     "",
-    ["📊 Atividades Finais por Agente", "📋 Monitor de Estratégia (22/06)"],
+    ["Atividades Referencias por Agente", "Monitor de Estrategia (22/06)"],
     horizontal=True,
     label_visibility="collapsed",
 )
 
 base = os.path.dirname(__file__)
 
-if secao == "📊 Atividades Finais por Agente":
+if secao == "Atividades Referencias por Agente":
     html_path = os.path.join(base, "atividades_finais_agentes.html")
 else:
     html_path = os.path.join(base, "monitor_estrategia.html")
