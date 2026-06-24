@@ -216,17 +216,17 @@ tr:hover td{background:#FAFBFF}
     <div class="leg-i"><div class="leg-dot" style="background:#94A3B8"></div><span>Nao iniciada</span></div><div class="leg-i"><div class="leg-dot" style="background:#1A56DB"></div><span>Em andamento</span></div><div class="leg-i"><div class="leg-dot" style="background:#057A55"></div><span>Concluida</span></div><div class="leg-i"><div class="leg-dot" style="background:#E67E22"></div><span>Atrasada</span></div><div class="leg-i"><div class="leg-dot" style="background:#DC2626"></div><span>Desistiu/ Perdeu o interesse</span></div><div class="leg-i"><div class="leg-dot" style="background:#7F1D1D"></div><span>Nao realizada</span></div><div class="leg-i"><div class="leg-dot" style="background:#CBD5E1"></div><span>Nao se aplica</span></div>
   </div>
 
-  <div class="chart-card">
-    <h3 id="pol-titulo">Todos os municipios</h3>
-    <p class="hint">Ordenado da politica com maior % Nao Iniciada (topo) para a de menor (base) · rotulos mostram % do segmento</p>
-    <div style="height:912px"><canvas id="cPol"></canvas></div>
-  </div>
-
-  <div class="tbl-wrap">
+  <div class="tbl-wrap bloco-resumo">
     <table><thead><tr>
       <th>Bloco</th><th class="tc">Municipios oficiais</th><th class="tc">Total Atividades</th>
       <th class="tc">Nao Iniciadas</th><th class="tc">Concluidas</th><th class="tc">% NI</th>
     </tr></thead><tbody><tr><td><strong>Bloco 1 (Piloto)</strong></td><td class="tc">8</td><td class="tc">26.313</td><td class="tc">8.334</td><td class="tc">2.407</td><td class="tc"><span style="color:#059669;font-weight:700">31.7%</span></td></tr><tr><td><strong>Bloco 2</strong></td><td class="tc">12</td><td class="tc">15.645</td><td class="tc">10.420</td><td class="tc">520</td><td class="tc"><span style="color:#D97706;font-weight:700">66.6%</span></td></tr><tr><td><strong>Bloco 3</strong></td><td class="tc">27</td><td class="tc">9.449</td><td class="tc">6.544</td><td class="tc">249</td><td class="tc"><span style="color:#D97706;font-weight:700">69.3%</span></td></tr></tbody></table>
+  </div>
+
+  <div class="chart-card">
+    <h3 id="pol-titulo">Todos os municipios</h3>
+    <p class="hint">Ordenado da politica com maior % Nao Iniciada (topo) para a de menor (base) · rotulos mostram % do segmento</p>
+    <div style="height:912px"><canvas id="cPol"></canvas></div>
   </div>
 </div>
 
@@ -369,7 +369,9 @@ function atualizaPol(key,titulo){
 function filtraPol(key,btn){
   document.querySelectorAll('.filt .fb').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
-  document.getElementById('mun-row').className='mun-row hidden';
+  const munRow=document.getElementById('mun-row');
+  munRow.className='mun-row hidden';
+  munRow.style.display='none';
   atualizaPol(key,btn.textContent);
 }
 function filtraBl(bk,btn){
@@ -379,8 +381,10 @@ function filtraBl(bk,btn){
   const muns=MUNS_BL[bk]||[];
   const row=document.getElementById('mun-row');
   row.innerHTML='<span style="font-size:.68rem;font-weight:700;color:#6B7280;text-transform:uppercase;margin-right:6px">Municipio:</span>'
-    +muns.map(m=>`<button class="fb sec" onclick="filtraMun('${m.k}','${m.n}',this)">${m.n}</button>`).join('');
+    +muns.map((m,i)=>`<button class="fb mun" data-idx="${i}">${m.n}</button>`).join('');
+  row.querySelectorAll('button.mun').forEach((b,i)=>{ b.addEventListener('click',()=>filtraMun(muns[i].k,muns[i].n,b)); });
   row.className='mun-row';
+  row.style.display = muns.length ? 'flex' : 'none';
 }
 function filtraMun(key,nome,btn){
   document.querySelectorAll('.mun-row .fb').forEach(b=>b.classList.remove('on'));
