@@ -137,15 +137,19 @@ tr:hover td{background:#FAFBFF}
 <div class="sumario">
   <div class="sum-item">
     <div class="sum-val">51.464</div>
-    <div class="sum-lbl">Atividades no plano</div>
+    <div class="sum-lbl">Atividades unicas no plano</div>
   </div>
   <div class="sum-item">
     <div class="sum-val alert">25.350</div>
     <div class="sum-lbl">Nao iniciadas (49.3%)</div>
   </div>
   <div class="sum-item">
-    <div class="sum-val ok">26.114</div>
-    <div class="sum-lbl">Em andamento ou concluidas (50.7%)</div>
+    <div class="sum-val" style="color:#93C5FD">2.688</div>
+    <div class="sum-lbl">Em andamento (5.2%)</div>
+  </div>
+  <div class="sum-item">
+    <div class="sum-val ok">3.177</div>
+    <div class="sum-lbl">Concluidas (6.2%)</div>
   </div>
   <div class="sum-item">
     <div class="sum-val alert">276</div>
@@ -160,8 +164,9 @@ tr:hover td{background:#FAFBFF}
 
     <div class="qa">
       <div class="q">De onde vem os 51.464 registros?</div>
-      <div class="a">O SIGMA gera o arquivo <strong>Relatorio_PDF_Estrategia_22062026_FGV.xlsx</strong> com todas as atividades pactuadas nos PDFs. O arquivo bruto tinha ~56 mil linhas — como o mesmo encaminhamento pode aparecer varias vezes quando o agente atualiza o status, mantivemos apenas o <strong>registro mais recente</strong> de cada atividade por familia. Resultado: 51.464 atividades unicas.</div>
-      <div class="ex">Regra: para cada combinacao (familia + politica + objetivo + acao + atividade), fica so o registro com a data de registro mais nova.</div>
+      <div class="a">O SIGMA gera o arquivo <strong>Relatorio_PDF_Estrategia_22062026_FGV.xlsx</strong> com todas as atividades pactuadas nos PDFs. O arquivo bruto tinha ~56 mil linhas. Como o mesmo encaminhamento pode aparecer varias vezes quando o agente atualiza o status, mantivemos apenas o <strong>registro mais recente</strong> de cada atividade por familia e pessoa/representante. Resultado: 51.464 atividades unicas.</div>
+      <div class="ex">Unidade de contagem: familia + pessoa/representante + politica + objetivo + acao + atividade. Assim, uma mesma familia pode aparecer mais de uma vez se tiver mais de uma pessoa/representante ou mais de uma atividade/politica. Nao e uma contagem de familias unicas.</div>
+      <div class="ex">Status no topo: Nao iniciadas = status literal "Nao iniciada"; Em andamento = status literal "Em andamento"; Concluidas = status literal "Concluida"; demais status com execucao/intercorrencia somam 20.249 registros.</div>
     </div>
 
     <div class="qa">
