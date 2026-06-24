@@ -1,11 +1,12 @@
-import streamlit as st
+﻿import streamlit as st
 import streamlit.components.v1 as components
 import os
 
 st.set_page_config(
     layout="wide",
-    page_title="Atividades Finais — SuperAção SP",
+    page_title="SuperAcao SP | Paineis",
     page_icon="📊",
+    initial_sidebar_state="expanded",
 )
 
 st.markdown("""
@@ -13,35 +14,56 @@ st.markdown("""
     .block-container { padding: 0 !important; max-width: 100% !important; }
     header { display: none !important; }
     footer { display: none !important; }
-    [data-testid="stRadio"] { position: fixed; top: 0; left: 0; right: 0; z-index: 999;
-        background: #1C2F67; padding: 8px 20px; }
-    [data-testid="stRadio"] label { color: #fff !important; font-weight: 600 !important;
-        font-size: 0.88rem !important; }
-    [data-testid="stRadio"] > div { flex-direction: row !important; gap: 8px; }
-    [data-testid="stRadio"] > div > label {
-        background: rgba(255,255,255,0.12); border-radius: 6px;
-        padding: 5px 16px !important; cursor: pointer; }
-    [data-testid="stRadio"] > div > label:has(input:checked) {
-        background: #0891B2 !important; }
-    div[data-testid="stVerticalBlock"] > div:first-child { margin-top: 48px; }
+    [data-testid="stAppViewContainer"] { background: #F0F2F7; }
+    [data-testid="stSidebar"] { background: #1C2F67; border-right: 1px solid rgba(255,255,255,.12); }
+    [data-testid="stSidebar"] * { color: #fff; }
+    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p,
+    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] div { color: rgba(255,255,255,.72); }
+    [data-testid="stSidebar"] h1,
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3 { color: #fff !important; letter-spacing: .01em; }
+    [data-testid="stSidebar"] [role="radiogroup"] { gap: 8px; }
+    [data-testid="stSidebar"] [role="radiogroup"] label {
+        background: rgba(255,255,255,.08);
+        border: 1px solid rgba(255,255,255,.13);
+        border-radius: 6px;
+        padding: 9px 10px !important;
+        transition: all .15s ease;
+    }
+    [data-testid="stSidebar"] [role="radiogroup"] label:hover { background: rgba(255,255,255,.14); }
+    [data-testid="stSidebar"] [role="radiogroup"] label:has(input:checked) {
+        background: #C8A951 !important;
+        border-color: #C8A951 !important;
+    }
+    [data-testid="stSidebar"] [role="radiogroup"] label:has(input:checked) * {
+        color: #1C2F67 !important;
+        font-weight: 700 !important;
+    }
+    [data-testid="stSidebar"] hr { border-color: rgba(255,255,255,.14); margin: 16px 0; }
+    iframe { display: block; background: #F0F2F7; }
 </style>
 """, unsafe_allow_html=True)
 
-secao = st.radio(
-    "",
-    ["Atividades Referencias por Agente", "Monitor de Estrategia (22/06)"],
-    horizontal=True,
-    label_visibility="collapsed",
-)
+with st.sidebar:
+    st.markdown("### SuperAcao SP")
+    st.caption("Paineis de acompanhamento")
+    st.divider()
+    secao = st.radio(
+        "Menu de navegacao",
+        ["Monitor de Estrategia (22/06)", "Atividades Referencias por Agente"],
+        label_visibility="collapsed",
+    )
+    st.divider()
+    st.caption("Base principal: 22/06/2026")
 
 base = os.path.dirname(__file__)
 
-if secao == "Atividades Referencias por Agente":
-    html_path = os.path.join(base, "atividades_finais_agentes.html")
-else:
+if secao == "Monitor de Estrategia (22/06)":
     html_path = os.path.join(base, "monitor_estrategia.html")
+else:
+    html_path = os.path.join(base, "atividades_finais_agentes.html")
 
 with open(html_path, "r", encoding="utf-8") as f:
     html_content = f.read()
 
-components.html(html_content, height=1200, scrolling=True)
+components.html(html_content, height=1450, scrolling=True)

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -85,6 +85,53 @@ tbody td{padding:6px 8px;vertical-align:middle}
 .note{background:#EFF6FF;border:1px solid #BFDBFE;border-left:4px solid var(--ci);border-radius:8px;padding:8px 12px;font-size:.76rem;color:#1E3A5F;margin-bottom:12px}
 @media(max-width:1000px){.sidebar{display:none}.kpis{grid-template-columns:repeat(2,1fr)}.charts2{grid-template-columns:1fr}}
 </style>
+
+<style id="layout-executivo-monitor">
+:root{
+  --az:#1C2F67;--navy:#1C2F67;--gold:#C8A951;--ci:#1A56DB;--vd:#059669;--vm:#DC2626;--la:#D97706;
+  --bg:#F0F2F7;--card:#fff;--bd:#E2E8F0;--tx:#111827;--mu:#6B7280;--sidebar:0px;
+}
+body{background:var(--bg)!important;color:var(--tx)!important;font-family:'Segoe UI',Arial,sans-serif!important;line-height:1.5!important;display:block!important;}
+.hdr{position:static!important;background:var(--navy)!important;padding:16px 28px!important;box-shadow:none!important;border-bottom:1px solid rgba(255,255,255,.1)!important;}
+.hdr h1{font-size:1.05rem!important;font-weight:700!important;color:#fff!important;letter-spacing:.01em!important;}
+.hdr .sub{font-size:.72rem!important;color:rgba(255,255,255,.6)!important;opacity:1!important;}
+.hdr-badge{background:var(--gold)!important;color:var(--navy)!important;border-radius:3px!important;padding:4px 12px!important;font-weight:700!important;font-size:.72rem!important;letter-spacing:.03em!important;}
+.layout{display:block!important;}
+.sidebar{width:auto!important;height:auto!important;position:static!important;top:auto!important;overflow:visible!important;background:var(--card)!important;border-right:none!important;border-top:0!important;border-bottom:2px solid var(--bd)!important;padding:14px 28px!important;display:grid!important;grid-template-columns:160px repeat(3,minmax(180px,240px)) 1fr!important;gap:14px 18px!important;align-items:end!important;}
+.sidebar-title{margin:0!important;color:var(--navy)!important;font-size:.72rem!important;letter-spacing:.08em!important;align-self:center!important;}
+.filt-group{margin:0!important;}
+.filt-label{color:var(--mu)!important;font-size:.68rem!important;margin-bottom:5px!important;}
+.filt-group select{border-radius:4px!important;background:#F8FAFF!important;border:1.5px solid var(--bd)!important;padding:7px 10px!important;color:var(--tx)!important;}
+.filt-group select:focus{border-color:var(--navy)!important;box-shadow:none!important;}
+.filt-sep{display:none!important;}
+.filt-info{font-size:.7rem!important;color:var(--mu)!important;line-height:1.45!important;margin:0!important;align-self:center!important;}
+.main{padding:22px 28px 32px!important;overflow-x:hidden!important;}
+.kpis{grid-template-columns:repeat(5,1fr)!important;gap:12px!important;margin-bottom:18px!important;}
+.kpi{border-radius:8px!important;border:1px solid var(--bd)!important;border-top:0!important;background:var(--card)!important;padding:14px 18px!important;box-shadow:none!important;}
+.kpi .lbl{font-size:.68rem!important;color:var(--mu)!important;letter-spacing:.05em!important;}
+.kpi .val{font-size:1.75rem!important;color:var(--navy)!important;}
+.kpi .sub2{color:var(--mu)!important;font-size:.72rem!important;}
+.main > .kpis:nth-of-type(2){grid-template-columns:repeat(5,1fr)!important;margin-bottom:22px!important;}
+.main > .kpis:nth-of-type(2) > div{background:var(--card)!important;border:1px solid var(--bd)!important;border-radius:8px!important;box-shadow:none!important;padding:12px 14px!important;}
+.main > .kpis:nth-of-type(2) > div:first-child{display:none!important;}
+.main > .kpis:nth-of-type(2) span[id]{font-size:1.35rem!important;color:var(--navy)!important;}
+.sec,.cc{border-radius:8px!important;border:1px solid var(--bd)!important;box-shadow:none!important;background:var(--card)!important;}
+.sec{padding:18px!important;margin-bottom:16px!important;}
+.sec-title{font-size:.95rem!important;color:var(--navy)!important;border-left:none!important;padding-left:0!important;}
+.sec-sub,.ct-sub{font-size:.72rem!important;color:var(--mu)!important;padding-left:0!important;}
+.ct{font-size:.8rem!important;color:var(--navy)!important;text-transform:uppercase!important;letter-spacing:.05em!important;}
+.note{background:#F8FAFF!important;border:1px solid var(--bd)!important;border-left:3px solid var(--gold)!important;color:#374151!important;border-radius:0 6px 6px 0!important;}
+.tw{border-radius:8px!important;border:1px solid var(--bd)!important;}
+thead th{background:#F8FAFF!important;border-bottom:2px solid var(--bd)!important;color:var(--mu)!important;}
+tbody tr:hover{background:#FAFBFF!important;}
+.busca-wrap input{border-radius:4px!important;background:#fff!important;}
+.metod{background:var(--card);border-top:2px solid var(--bd);border-bottom:2px solid var(--bd);margin:0 0 16px 0;border-radius:0;}
+.metod summary{padding:14px 18px;font-size:.82rem;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;user-select:none;}
+.metod summary::-webkit-details-marker{display:none}.metod summary::before{content:'>';font-size:.6rem;transition:transform .2s;color:var(--gold)}.metod[open] summary::before{transform:rotate(90deg)}
+.metod-inner{padding:0 18px 18px;display:grid;grid-template-columns:1fr 1fr;gap:14px}.qa{background:#F8FAFF;border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:12px 14px}.qa .q{font-size:.78rem;font-weight:700;color:var(--navy);margin-bottom:5px}.qa .a{font-size:.76rem;color:#374151;line-height:1.65}.qa .ex{font-size:.72rem;color:var(--mu);margin-top:5px;font-style:italic;border-top:1px dashed #DDE6F5;padding-top:5px}
+@media(max-width:1100px){.sidebar{grid-template-columns:1fr!important}.kpis,.main > .kpis:nth-of-type(2){grid-template-columns:1fr 1fr!important}.charts2{grid-template-columns:1fr!important}.metod-inner{grid-template-columns:1fr!important}}
+</style>
+
 </head>
 <body>
 <div class="hdr">
@@ -127,7 +174,7 @@ tbody td{padding:6px 8px;vertical-align:middle}
   </div>
 
   <hr class="filt-sep">
-  <div class="filt-info">Dados disponíveis: Bloco 1<br>Blocos 2 e 3 em incorporação</div>
+  <div class="filt-info">Use os filtros para comparar blocos e municípios.</div>
 </aside>
 
 <!-- ═══ CONTEÚDO PRINCIPAL ═══ -->
@@ -191,21 +238,17 @@ tbody td{padding:6px 8px;vertical-align:middle}
       <div class="sec-sub">Bloco · Município · Agente · status das Atividades Finais · clique nas colunas para ordenar</div>
     </div>
   </div>
-  <div style="background:#F0F9FF;border:1px solid #BAE6FD;border-radius:8px;padding:14px 18px;margin-bottom:16px;font-size:.88rem;line-height:1.6;color:#0C4A6E">
-    <div style="font-weight:700;font-size:.93rem;margin-bottom:6px;display:flex;align-items:center;gap:6px">
-      <span style="font-size:1rem">ℹ️</span> O que são Atividades Finais?
+
+  <details class="metod">
+    <summary>Como os dados foram calculados ? Nota Metodologica</summary>
+    <div class="metod-inner">
+      <div class="qa"><div class="q">O que entra neste painel?</div><div class="a">Entram somente as atividades finais mapeadas pela coordena??o: pares de Pol?tica P?blica ? Atividade que indicam o fechamento do encaminhamento no SIGMA. A tabela resume esses registros por agente, munic?pio e bloco.</div><div class="ex">Base do painel: exporta??o do SIGMA de 22/06/2026.</div></div>
+      <div class="qa"><div class="q">Como s?o calculados os totais e percentuais?</div><div class="a">O total ? a quantidade de registros de atividades finais encontrados para o filtro selecionado. O percentual de conclus?o divide as atividades conclu?das pelo total; o percentual cr?tico soma Atrasada, N?o realizada e Desist?ncia/Perdeu interesse e divide pelo total.</div><div class="ex">Exemplo: 10 conclu?das em 40 atividades finais = 25% de conclus?o.</div></div>
+      <div class="qa"><div class="q">Por que h? contagem de registros e de agentes?</div><div class="a">Os cart?es principais contam registros, porque um agente pode ter v?rias atividades finais. A segunda linha conta agentes ?nicos em cada situa??o, para mostrar quantas pessoas precisam de acompanhamento.</div><div class="ex">Um agente com 12 atividades n?o iniciadas conta 12 nos registros, mas 1 na contagem de agentes.</div></div>
+      <div class="qa"><div class="q">Como interpretar a barra de distribui??o?</div><div class="a">A barra mostra a composi??o dos status daquele agente. Quanto maior a parte azul, maior a conclus?o; quanto maior a parte cinza/vermelha/laranja/marrom, maior a necessidade de aten??o.</div><div class="ex">A leitura ? sempre proporcional ao total de atividades finais do pr?prio agente.</div></div>
     </div>
-    <p style="margin:0 0 6px 0">
-      Atividades Finais são as <strong>ações conclusivas obrigatórias</strong> que cada agente deve registrar no SIGMA para indicar o encerramento do acompanhamento de uma família em cada política pública. Elas sinalizam que o ciclo de atendimento foi completado — seja com êxito (Concluída) ou com alguma intercorrência (Atrasada, Não realizada, Desistência).
-    </p>
-    <p style="margin:0 0 4px 0">
-      São monitoradas <strong>23 pares de Política Pública × Atividade</strong>, definidos pela coordenação do programa SuperAção SP. Para cada agente, contabiliza-se quantos registros existem nessas combinações e qual o status de cada um.
-    </p>
-    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px">
-      <span style="background:#DBEAFE;color:#1E40AF;padding:2px 8px;border-radius:12px;font-size:.8rem">% Conclusão = Concluídas ÷ Total</span>
-      <span style="background:#FEF3C7;color:#92400E;padding:2px 8px;border-radius:12px;font-size:.8rem">% Status Crítico = (Atrasadas + Não realizadas + Desistências) ÷ Total</span>
-    </div>
-  </div>
+  </details>
+
   <div class="note">
     <span style="font-weight:700">Barra de distribuição:</span>
     <span style="display:inline-block;width:10px;height:10px;background:#2563EB;border-radius:2px;vertical-align:middle;margin:0 2px 0 8px"></span>Concluída
@@ -792,3 +835,4 @@ function renderBarrasAdesao(){
 aplicarFiltros();
 </script>
 </body></html>
+
