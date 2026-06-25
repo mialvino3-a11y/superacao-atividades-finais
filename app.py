@@ -55,10 +55,9 @@ with st.sidebar:
     )
     st.divider()
     if secao == "Monitor de Estrategia":
-        base_sel = st.radio(
+        base_sel = st.selectbox(
             "Base de dados",
             ["25/06/2026 (atual)", "22/06/2026 (anterior)"],
-            label_visibility="visible",
         )
     else:
         base_sel = None
