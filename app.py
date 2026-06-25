@@ -49,17 +49,27 @@ with st.sidebar:
     st.caption("Paineis de acompanhamento")
     st.divider()
     secao = st.radio(
-        "Menu de navegacao",
-        ["Monitor de Estrategia (22/06)", "Atividades Referencias por Agente"],
+        "Painel",
+        ["Monitor de Estrategia", "Atividades Referencias por Agente"],
         label_visibility="collapsed",
     )
     st.divider()
-    st.caption("Base principal: 22/06/2026")
+    if secao == "Monitor de Estrategia":
+        base_sel = st.radio(
+            "Base de dados",
+            ["25/06/2026 (atual)", "22/06/2026 (anterior)"],
+            label_visibility="visible",
+        )
+    else:
+        base_sel = None
 
 base = os.path.dirname(__file__)
 
-if secao == "Monitor de Estrategia (22/06)":
-    html_path = os.path.join(base, "monitor_estrategia.html")
+if secao == "Monitor de Estrategia":
+    if base_sel and "22/06" in base_sel:
+        html_path = os.path.join(base, "monitor_estrategia_22062026.html")
+    else:
+        html_path = os.path.join(base, "monitor_estrategia_25062026.html")
 else:
     html_path = os.path.join(base, "atividades_finais_agentes.html")
 
