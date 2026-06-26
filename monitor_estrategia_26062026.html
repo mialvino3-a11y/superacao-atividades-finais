@@ -134,7 +134,7 @@ tr:hover td{background:#FAFBFF}
     <h1>Monitor de Atividades — PDF Estrategia</h1>
     <p>SuperAcao SP · Secretaria de Desenvolvimento Social</p>
   </div>
-  <span class="hdr-badge">BASE: 25/06/2026</span>
+  <span class="hdr-badge">BASE: 26/06/2026</span>
 </div>
 
 <!-- Sumário executivo -->
@@ -199,14 +199,14 @@ tr:hover td{background:#FAFBFF}
 
     <div class="qa">
       <div class="q">O que define um "PDF Sem Execucao" e como calcular dias?</div>
-      <div class="a">Um PDF e considerado <strong>sem execucao</strong> quando <strong>100% das suas atividades</strong> estao com status "Nao Iniciada". Os <strong>dias</strong> sao calculados entre a <strong>data de pactuacao do PDF</strong> (coluna do SIGMA) e a data da extracao (25/06/2026). PDFs com 60+ dias sem nenhuma atividade iniciada sao classificados como <strong>criticos</strong>.</div>
+      <div class="a">Um PDF e considerado <strong>sem execucao</strong> quando <strong>100% das suas atividades</strong> estao com status "Nao Iniciada". Os <strong>dias</strong> sao calculados entre a <strong>data de pactuacao do PDF</strong> (coluna do SIGMA) e a data da extracao (26/06/2026). PDFs com 60+ dias sem nenhuma atividade iniciada sao classificados como <strong>criticos</strong>.</div>
       <div class="ex">Limite: 0–29 dias = Atencao · 30–59 dias = Alerta · 60+ dias = Critico</div>
     </div>
 
     <div class="qa">
       <div class="q">Os numeros refletem a realidade operacional?</div>
       <div class="a">Os dados dependem inteiramente do que o <strong>agente registrou no SIGMA</strong>. Se um encaminhamento foi iniciado mas nao atualizado no sistema, ele aparece aqui como "Nao Iniciado". O painel mede a <strong>execucao registrada</strong>, nao necessariamente a execucao real. Lacunas de registro podem subestimar o avanco.</div>
-      <div class="ex">Extracao: Relatorio_PDF_Estrategia_25062026_FGV · Processamento: FGV Projetos · Referencia: 25/06/2026</div>
+      <div class="ex">Extracao: Relatorio_PDF_Estrategia_25062026_FGV · Processamento: FGV Projetos · Referencia: 26/06/2026</div>
     </div>
 
   </div>
@@ -295,7 +295,7 @@ tr:hover td{background:#FAFBFF}
     <div class="kpi" title="Como e calculado: contagem de familias distintas (cod_familiar_fam) que possuem ao menos 1 atividade registrada no arquivo Relatorio_PDF_Estrategia_25062026_FGV. Fonte: deduplicacao por familia + politica + objetivo + acao + atividade, mantendo o registro mais recente."><div class="v">1.425</div><div class="l">Familias com PDF</div><div class="s">ao menos 1 atividade registrada</div></div>
     <div class="kpi" title="Como e calculado: familias onde NENHUMA atividade tem status de execucao real (Em andamento, Concluida, Atrasada, Nao realizada, Desistiu). Inclui apenas registros com status explicito — campos em branco nao sao contados pois podem ser erro do proprio sistema ao nao preencher automaticamente o status Nao iniciada."><div class="v" style="color:var(--red)">363</div><div class="l">Sem execucao</div><div class="s">25.5% — 100% das atividades paradas</div></div>
     <div class="kpi" title="Como e calculado: familias com ao menos 1 atividade com status Em andamento, Concluida, Atrasada, Nao realizada ou Desistiu/Perdeu o interesse. Formula: Total (1.354) - Sem execucao (276) = 1.078."><div class="v" style="color:var(--green)">1.062</div><div class="l">Com execucao</div><div class="s">74.5% — ao menos 1 atividade iniciada</div></div>
-    <div class="kpi" title="Como e calculado: 1) Seleciona familias sem execucao; 2) Filtra apenas as que tem status Nao iniciada puro (sem campos em branco — esses sao descartados por possivel erro do sistema); 3) Calcula dias entre a data de pactuacao do PDF e 25/06/2026; 4) Mantem apenas as com 60 ou mais dias paradas. Resultado: 4 familias confirmadas pelo sistema como 100% paradas ha mais de 2 meses."><div class="v" style="color:#7F1D1D">80</div><div class="l">Criticos 60+ dias</div><div class="s">PDF parado ha mais de 2 meses</div></div>
+    <div class="kpi" title="Como e calculado: 1) Seleciona familias sem execucao; 2) Filtra apenas as que tem status Nao iniciada puro (sem campos em branco — esses sao descartados por possivel erro do sistema); 3) Calcula dias entre a data de pactuacao do PDF e 26/06/2026; 4) Mantem apenas as com 60 ou mais dias paradas. Resultado: 4 familias confirmadas pelo sistema como 100% paradas ha mais de 2 meses."><div class="v" style="color:#7F1D1D">80</div><div class="l">Criticos 60+ dias</div><div class="s">PDF parado ha mais de 2 meses</div></div>
   </div>
 
   <div class="col2">
@@ -312,7 +312,7 @@ tr:hover td{background:#FAFBFF}
   </div>
 
   <div class="chart-card">
-    <h3>Familias com PDF 100% parado <span class="info-btn">i<span class="tip">Lista de familias com 100% das atividades 'Nao Iniciada', ordenadas do caso mais grave (mais dias parado) para o menos grave. Dias = diferenca entre a data de pactuacao do PDF e 25/06/2026. Classificacao: Critico = 60+ dias · Alerta = 30 a 59 dias · Atencao = menos de 30 dias. Limitado a 200 registros.</span></span></h3>
+    <h3>Familias com PDF 100% parado <span class="info-btn">i<span class="tip">Lista de familias com 100% das atividades 'Nao Iniciada', ordenadas do caso mais grave (mais dias parado) para o menos grave. Dias = diferenca entre a data de pactuacao do PDF e 26/06/2026. Classificacao: Critico = 60+ dias · Alerta = 30 a 59 dias · Atencao = menos de 30 dias. Limitado a 200 registros.</span></span></h3>
     <p class="hint">Critico = 60+ dias · Alerta = 30–59 dias · Atencao = menos de 30 dias</p>
     <div class="tbl-wrap" style="max-height:360px;overflow-y:auto">
       <table><thead><tr>
@@ -325,7 +325,7 @@ tr:hover td{background:#FAFBFF}
 
 <div class="footer">
   <span>FGV Projetos · SuperAcao SP · Relatorio_PDF_Estrategia_25062026_FGV</span>
-  <span>Gerado em 23/06/2026</span>
+  <span>Gerado em 26/06/2026</span>
 </div>
 
 <script>
