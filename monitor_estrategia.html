@@ -135,7 +135,7 @@ tr:hover td{background:#FAFBFF}
 
 <!-- Sumário executivo -->
 <div class="sumario">
-  <div class="sum-item" title="Total de atividades unicas apos deduplicacao. O arquivo bruto do SIGMA tinha ~60.428 linhas — como o mesmo encaminhamento pode aparecer varias vezes quando o agente atualiza o status, mantivemos apenas o registro mais recente por familia + pessoa + politica + objetivo + acao + atividade. Resultado: 54.800 atividades unicas. Verificacao: 26.421 + 4.617 + 4.325 + 1.910 + 16.255 = 54.800.">
+  <div class="sum-item" title="Total de atividades unicas apos deduplicacao. O arquivo bruto do SIGMA tinha ~60.428 linhas — como o mesmo encaminhamento pode aparecer varias vezes quando o agente atualiza o status, mantivemos apenas o registro mais recente por familia + pessoa + politica + objetivo + acao + atividade. Resultado: 54.800 atividades unicas. Verificacao: 26.421 + 4.617 + 4.325 + 1.910 + 1.272 + 16.255 = 54.800 (inclui Nao se aplica).">
     <div class="sum-val">54.800</div>
     <div class="sum-lbl">Atividades unicas no plano <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg></div>
   </div>
@@ -159,8 +159,12 @@ tr:hover td{background:#FAFBFF}
     <div class="sum-val" style="color:#FBBF24">16.255</div>
     <div class="sum-lbl">Sem status preenchido (29.7%) <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg></div>
   </div>
-  <div class="sum-item" title="NOTA DE QUALIDADE — nao e um status adicional. Essas 53 atividades JA estao contadas dentro dos 51.464 e distribuidas nos status acima. O que este indicador alerta e que o campo Municipio esta em branco no SIGMA para 2 familias: Melissa Coutinho da Mota (52 ativ.) e Caroline Ferreira Cavalheri Afonso (1 ativ., provavel Sao Roque). Sem municipio, nao e possivel alocá-las na tabela por bloco.">
-    <div class="sum-val" style="color:#F87171">0</div>
+  <div class="sum-item" title="Atividades com status 'Nao se aplica' — o agente indicou que aquele encaminhamento nao se aplica a situacao da familia. Nao e considerado falha nem sucesso, apenas que aquela politica publica nao era pertinente. Formula: 1.272 / 54.800 = 2.3%.">
+    <div class="sum-val" style="color:#94A3B8">1.272</div>
+    <div class="sum-lbl">Nao se aplica (2.3%) <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg></div>
+  </div>
+  <div class="sum-item" title="Atividades cujo campo Municipio esta em branco no SIGMA. Essas atividades estao contadas no total de 54.800 e nos status acima, mas nao aparecem na tabela por bloco. Agente responsavel: Melissa Coutinho da Mota (52 ativ.) e Caroline Ferreira Cavalheri Afonso (1 ativ.). Veja a tabela detalhada na aba Por Politica Publica.">
+    <div class="sum-val" style="color:#F87171">53</div>
     <div class="sum-lbl">Sem municipio no SIGMA ⚠ <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg></div>
   </div>
 </div>
@@ -232,8 +236,17 @@ tr:hover td{background:#FAFBFF}
   <div class="tbl-wrap bloco-resumo">
     <table><thead><tr>
       <th>Bloco</th><th class="tc">Municipios oficiais</th><th class="tc">Total Atividades</th>
-      <th class="tc">Nao Iniciadas</th><th class="tc">Concluidas</th><th class="tc">% NI</th>
+      <th class="tc">Nao Iniciadas</th><th class="tc">Concluidas (real)</th><th class="tc">% NI</th>
     </tr></thead><tbody><tr><td><strong>Bloco 1 (Piloto)</strong></td><td class="tc">8</td><td class="tc">26.922</td><td class="tc">8.598</td><td class="tc">772</td><td class="tc"><span style="color:#059669;font-weight:700">31.9%</span></td></tr><tr><td><strong>Bloco 2</strong></td><td class="tc">12</td><td class="tc">17.017</td><td class="tc">10.693</td><td class="tc">461</td><td class="tc"><span style="color:#D97706;font-weight:700">62.8%</span></td></tr><tr><td><strong>Bloco 3</strong></td><td class="tc">23</td><td class="tc">10.780</td><td class="tc">7.061</td><td class="tc">188</td><td class="tc"><span style="color:#D97706;font-weight:700">65.5%</span></td></tr></tbody></table>
+  </div>
+
+  <div class="tbl-wrap" id="sem-mun-section" style="margin-top:16px;display:none">
+    <div style="background:#FEF2F2;border-left:4px solid #F87171;border-radius:4px;padding:10px 14px;margin-bottom:10px;font-size:.78rem;color:#7F1D1D">
+      <strong>53 atividades sem municipio no SIGMA</strong> — essas atividades estao contadas no total de 54.800 mas nao aparecem na tabela por bloco pois o campo Municipio esta em branco. Agente responsavel principal: Melissa Coutinho da Mota.
+    </div>
+    <table id="sem-mun-table"><thead><tr>
+      <th>Agente</th><th>Cod. Familia</th><th>Politica Publica</th><th>Atividade</th><th class="tc">Status</th>
+    </tr></thead><tbody id="sem-mun-tbody"><!-- SEM_MUN_ROWS --></tbody></table>
   </div>
 
   <div class="chart-card">
