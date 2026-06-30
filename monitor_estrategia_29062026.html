@@ -123,7 +123,8 @@ tr:hover td{background:#FAFBFF}
 
 /* Footer */
 .footer{padding:12px 28px;font-size:.68rem;color:var(--muted);display:flex;justify-content:space-between;border-top:1px solid var(--border)}
-<style>.delta{font-size:.6rem;font-weight:700;display:inline-block;margin-left:4px;opacity:.9;vertical-align:middle}.delta.neutral{color:#94A3B8}</style>
+<style>.delta{font-size:.6rem;font-weight:700;display:inline-block;margin-left:4px;opacity:.9;vertical-align:middle}.delta.neutral{color:#94A3B8}<style>.delta{font-size:.6rem;font-weight:700;display:inline-block;margin-left:4px;opacity:.9;vertical-align:middle}.delta.neutral{color:#94A3B8}</style>
+</style>
 </style>
 </head>
 <body>
@@ -139,29 +140,29 @@ tr:hover td{background:#FAFBFF}
 
 <!-- Sumário executivo -->
 <div class="sumario">
-  <div class="sum-item" title="Total de atividades unicas apos deduplicacao. O arquivo bruto do SIGMA tinha ~60.428 linhas — como o mesmo encaminhamento pode aparecer varias vezes quando o agente atualiza o status, mantivemos apenas o registro mais recente por familia + pessoa + politica + objetivo + acao + atividade. Resultado: 54.800 atividades unicas. Verificacao: 26.830 + 5.602 + 5.591 + 3.023 + 2.349 + 13.293 = 56.688 (inclui Nao se aplica).800 (inclui Nao se aplica).">
-    <div class="sum-val">54.800</div>
-    <div class="sum-lbl">Atividades unicas no plano <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg><span class="delta" style="color:#4ADE80" title="Variacao vs remessa 22/06/2026">▲ 1.888</span></div>
+  <div class="sum-item" title="Total de atividades unicas apos deduplicacao. O arquivo bruto do SIGMA tinha ~60.428 linhas — como o mesmo encaminhamento pode aparecer varias vezes quando o agente atualiza o status, mantivemos apenas o registro mais recente por familia + pessoa + politica + objetivo + acao + atividade. Resultado: 54.800 atividades unicas. Verificacao: 26.830 + 5.602 + 5.591 + 3.023 + 2.349 + 13.293 = 56.688 (inclui Nao se aplica)">
+    <div class="sum-val">56.688</div>
+    <div class="sum-lbl">Atividades unicas no plano <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg><span class="delta" style="color:#4ADE80" title="Variacao vs remessa 29/06/2026">▲ 1.888</span><span class="delta" style="color:#4ADE80" title="Variacao vs remessa 22/06/2026">▲ 1.006</span></div>
   </div>
   <div class="sum-item" title="Atividades com status literal 'Nao iniciada' preenchido pelo proprio sistema SIGMA. Nao inclui os 18.197 com campo em branco (que tambem podem indicar nao inicio, mas podem ser erro do sistema). Formula: 26.421 / 54.800 = 48.2%.">
-    <div class="sum-val alert">26.421</div>
-    <div class="sum-lbl">Nao iniciadas (48.2%) <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg></div>
+    <div class="sum-val alert">26.830</div>
+    <div class="sum-lbl">Nao iniciadas (47.3%) <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg><span class="delta" style="color:#4ADE80" title="Variacao vs remessa 22/06/2026">▼ 0.1%</span></div>
   </div>
   <div class="sum-item" title="Composto por 1 unico status: 'Em andamento' — atividade iniciada e ainda em execucao, dentro do prazo. O agente registrou o inicio mas ainda nao concluiu. Formula: 4.617 / 54.800 = 8.4%. Atencao: pode estar subestimado — os 18.197 sem status podem conter atividades ja iniciadas mas nao atualizadas pelo agente.">
-    <div class="sum-val" style="color:#93C5FD">4.617</div>
-    <div class="sum-lbl">Em andamento (8.4%) <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg></div>
+    <div class="sum-val" style="color:#93C5FD">5.602</div>
+    <div class="sum-lbl">Em andamento (9.9%) <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg><span class="delta" style="color:#4ADE80" title="Variacao vs remessa 22/06/2026">▲ 0.4%</span></div>
   </div>
   <div class="sum-item" title="Atividades com status 'Concluida' — a familia realizou o encaminhamento com sucesso. Formula: 4.325 / 54.800 = 7.9%. E o indicador mais confiavel pois depende de registro ativo do agente.">
-    <div class="sum-val ok">4.325</div>
-    <div class="sum-lbl">Concluidas (7.9%) <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg></div>
+    <div class="sum-val ok">5.591</div>
+    <div class="sum-lbl">Concluidas (9.9%) <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg><span class="delta" style="color:#4ADE80" title="Variacao vs remessa 22/06/2026">▲ 1.0%</span></div>
   </div>
-  <div class="sum-item" title="Composto por 3 status: (1) 'Atrasada' — atividade iniciada mas nao concluida no prazo pactuado; (2) 'Nao realizada' — atividade nao aconteceu por impedimento externo (ex: servico indisponivel, familia nao compareceu); (3) 'Desistiu/Perdeu o interesse' — familia sinalizou que nao quer mais aquele encaminhamento. Em todos os casos, houve um registro ativo do agente indicando o que ocorreu. Formula: soma dos 3 status / 54.800 = 3.5%.">
-    <div class="sum-val" style="color:#FB923C">1.910</div>
-    <div class="sum-lbl">Com intercorrencia (3.5%) <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg></div>
+  <div class="sum-item" title="Composto por 3 status: (1) 'Atrasada' — atividade iniciada mas nao concluida no prazo pactuado; (2) 'Nao realizada' — atividade nao aconteceu por impedimento externo (ex: servico indisponivel, familia nao compareceu); (3) 'Desistiu/Perdeu o interesse' — familia sinalizou que nao quer mais aquele encaminhamento. Em todos os casos, houve um registro ativo do agente indicando o que ocorreu. Formula: soma dos 3 status / 56.688 = 5.3%.">
+    <div class="sum-val" style="color:#FB923C">3.023</div>
+    <div class="sum-lbl">Com intercorrencia (5.3%) <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg><span class="delta" style="color:#F87171" title="Variacao vs remessa 22/06/2026">▲ 1.2%</span></div>
   </div>
   <div class="sum-item" title="Atividades onde o campo 'Status da Atividade' esta em branco no SIGMA. Pode significar: (1) erro do proprio sistema que nao preencheu automaticamente 'Nao iniciada'; ou (2) o agente nunca abriu o registro. A medida que os agentes atualizarem, este numero tende a cair. Formula: 16.255 / 54.800 = 29.7%.">
-    <div class="sum-val" style="color:#FBBF24">16.255</div>
-    <div class="sum-lbl">Sem status preenchido (29.7%) <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg></div>
+    <div class="sum-val" style="color:#FBBF24">13.293</div>
+    <div class="sum-lbl">Sem status preenchido (23.4%) <svg style="display:inline;vertical-align:middle;margin-left:3px;opacity:.65" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><rect x="7.25" y="7" width="1.5" height="5" fill="currentColor" rx=".4"/><circle cx="8" cy="4.8" r=".9" fill="currentColor"/></svg><span class="delta" style="color:#4ADE80" title="Variacao vs remessa 22/06/2026">▼ 3.2%</span></div>
   </div>
   <div class="sum-item" title="Atividades com status 'Nao se aplica' — o agente indicou que aquele encaminhamento nao se aplica a situacao da familia. Nao e considerado falha nem sucesso, apenas que aquela politica publica nao era pertinente. Formula: 1.272 / 54.800 = 2.3%.">
     <div class="sum-val" style="color:#94A3B8">2.349</div>
