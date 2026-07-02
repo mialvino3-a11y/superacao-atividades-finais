@@ -57,7 +57,7 @@ with st.sidebar:
     if secao == "Monitor de Estrategia":
         base_sel = st.selectbox(
             "Base de dados",
-            ["29/06/2026 (atual)", "26/06/2026 (anterior)", "25/06/2026", "22/06/2026"],
+            ["02/07/2026 (atual)", "29/06/2026 (anterior)", "26/06/2026", "25/06/2026", "22/06/2026"],
         )
     else:
         base_sel = None
@@ -71,8 +71,10 @@ if secao == "Monitor de Estrategia":
         html_path = os.path.join(base, "monitor_estrategia_25062026.html")
     elif base_sel and "26/06" in base_sel:
         html_path = os.path.join(base, "monitor_estrategia_26062026.html")
-    else:
+    elif base_sel and "29/06" in base_sel:
         html_path = os.path.join(base, "monitor_estrategia_29062026.html")
+    else:
+        html_path = os.path.join(base, "monitor_estrategia_02072026.html")
 else:
     html_path = os.path.join(base, "atividades_finais_agentes.html")
 
