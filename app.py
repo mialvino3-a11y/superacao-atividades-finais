@@ -36,10 +36,34 @@ st.markdown("""
         gap: 8px;
     }
     .painel-ativo .dot { width: 9px; height: 9px; border-radius: 50%; background: #1C2F67; flex-shrink: 0; }
+    /* Setinha de recolher a sidebar: sempre visivel e com contraste alto */
     [data-testid="stSidebarCollapseButton"],
     [data-testid="collapsedControl"] {
         opacity: 1 !important;
         visibility: visible !important;
+    }
+    [data-testid="stSidebarCollapseButton"] button,
+    [data-testid="collapsedControl"] button {
+        background: #C8A951 !important;
+        border-radius: 50% !important;
+        box-shadow: 0 1px 4px rgba(0,0,0,.25);
+    }
+    [data-testid="stSidebarCollapseButton"] svg,
+    [data-testid="collapsedControl"] svg {
+        color: #1C2F67 !important;
+        fill: #1C2F67 !important;
+    }
+    /* Selectbox "Base de dados": o fundo do campo e branco, entao o texto
+       precisa ficar escuro (a regra generica acima deixa tudo branco,
+       o que tornava o valor selecionado invisivel). */
+    [data-testid="stSidebar"] [data-baseweb="select"] > div {
+        background: #fff !important;
+        border: 1.5px solid #C8A951 !important;
+        border-radius: 6px !important;
+    }
+    [data-testid="stSidebar"] [data-baseweb="select"] * {
+        color: #1C2F67 !important;
+        font-weight: 600;
     }
 </style>
 """, unsafe_allow_html=True)
