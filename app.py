@@ -22,25 +22,25 @@ st.markdown("""
     [data-testid="stSidebar"] h1,
     [data-testid="stSidebar"] h2,
     [data-testid="stSidebar"] h3 { color: #fff !important; letter-spacing: .01em; }
-    [data-testid="stSidebar"] [role="radiogroup"] { gap: 8px; }
-    [data-testid="stSidebar"] [role="radiogroup"] label {
-        background: rgba(255,255,255,.08);
-        border: 1px solid rgba(255,255,255,.13);
-        border-radius: 6px;
-        padding: 9px 10px !important;
-        transition: all .15s ease;
-    }
-    [data-testid="stSidebar"] [role="radiogroup"] label:hover { background: rgba(255,255,255,.14); }
-    [data-testid="stSidebar"] [role="radiogroup"] label:has(input:checked) {
-        background: #C8A951 !important;
-        border-color: #C8A951 !important;
-    }
-    [data-testid="stSidebar"] [role="radiogroup"] label:has(input:checked) * {
-        color: #1C2F67 !important;
-        font-weight: 700 !important;
-    }
     [data-testid="stSidebar"] hr { border-color: rgba(255,255,255,.14); margin: 16px 0; }
     iframe { display: block; background: #F0F2F7; }
+    .painel-ativo {
+        background: #C8A951;
+        border: 1px solid #C8A951;
+        border-radius: 6px;
+        padding: 9px 10px;
+        color: #1C2F67 !important;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .painel-ativo .dot { width: 9px; height: 9px; border-radius: 50%; background: #1C2F67; flex-shrink: 0; }
+    [data-testid="stSidebarCollapseButton"],
+    [data-testid="collapsedControl"] {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -48,35 +48,28 @@ with st.sidebar:
     st.markdown("### SuperAcao SP")
     st.caption("Paineis de acompanhamento")
     st.divider()
-    secao = st.radio(
-        "Painel",
-        ["Monitor de Estrategia", "Atividades Referencias por Agente"],
-        label_visibility="collapsed",
+    st.markdown(
+        '<div class="painel-ativo"><span class="dot"></span>Monitor de Estrategia</div>',
+        unsafe_allow_html=True,
     )
     st.divider()
-    if secao == "Monitor de Estrategia":
-        base_sel = st.selectbox(
-            "Base de dados",
-            ["02/07/2026 (atual)", "29/06/2026 (anterior)", "26/06/2026", "25/06/2026", "22/06/2026"],
-        )
-    else:
-        base_sel = None
+    base_sel = st.selectbox(
+        "Base de dados",
+        ["02/07/2026 (atual)", "29/06/2026 (anterior)", "26/06/2026", "25/06/2026", "22/06/2026"],
+    )
 
 base = os.path.dirname(__file__)
 
-if secao == "Monitor de Estrategia":
-    if base_sel and "22/06" in base_sel:
-        html_path = os.path.join(base, "monitor_estrategia_22062026.html")
-    elif base_sel and "25/06" in base_sel:
-        html_path = os.path.join(base, "monitor_estrategia_25062026.html")
-    elif base_sel and "26/06" in base_sel:
-        html_path = os.path.join(base, "monitor_estrategia_26062026.html")
-    elif base_sel and "29/06" in base_sel:
-        html_path = os.path.join(base, "monitor_estrategia_29062026.html")
-    else:
-        html_path = os.path.join(base, "monitor_estrategia_02072026.html")
+if base_sel and "22/06" in base_sel:
+    html_path = os.path.join(base, "monitor_estrategia_22062026.html")
+elif base_sel and "25/06" in base_sel:
+    html_path = os.path.join(base, "monitor_estrategia_25062026.html")
+elif base_sel and "26/06" in base_sel:
+    html_path = os.path.join(base, "monitor_estrategia_26062026.html")
+elif base_sel and "29/06" in base_sel:
+    html_path = os.path.join(base, "monitor_estrategia_29062026.html")
 else:
-    html_path = os.path.join(base, "atividades_finais_agentes.html")
+    html_path = os.path.join(base, "monitor_estrategia_02072026.html")
 
 with open(html_path, "r", encoding="utf-8") as f:
     html_content = f.read()
