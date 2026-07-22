@@ -79,7 +79,7 @@ with st.sidebar:
     st.divider()
     base_sel = st.selectbox(
         "Base de dados",
-        ["13/07/2026 (atual)", "06/07/2026 (anterior)", "02/07/2026", "29/06/2026", "26/06/2026", "25/06/2026", "22/06/2026"],
+        ["20/07/2026 (atual)", "13/07/2026 (anterior)", "06/07/2026", "02/07/2026", "29/06/2026", "26/06/2026", "25/06/2026", "22/06/2026"],
     )
 
 base = os.path.dirname(__file__)
@@ -96,8 +96,10 @@ elif base_sel and "02/07" in base_sel:
     html_path = os.path.join(base, "monitor_estrategia_02072026.html")
 elif base_sel and "06/07" in base_sel:
     html_path = os.path.join(base, "monitor_estrategia_06072026.html")
-else:
+elif base_sel and "13/07" in base_sel:
     html_path = os.path.join(base, "monitor_estrategia_13072026.html")
+else:
+    html_path = os.path.join(base, "monitor_estrategia_20072026.html")
 
 with open(html_path, "r", encoding="utf-8") as f:
     html_content = f.read()
